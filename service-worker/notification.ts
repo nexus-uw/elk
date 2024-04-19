@@ -12,7 +12,7 @@ export async function findNotification({ access_token, notification_id/* , notif
 
   for (const user of filteredUsers) {
     try {
-      const response = await fetch(`https://${user.server}/api/v1/notifications/${notification_id}`, {
+      const response = await fetch(`http${user.server.endsWith('.onion') ? '' : 's'}://${user.server}/api/v1/notifications/${notification_id}`, {
         method: 'get',
         headers: {
           'Authorization': `Bearer ${user.token}`,

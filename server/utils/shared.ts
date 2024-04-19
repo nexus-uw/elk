@@ -49,7 +49,7 @@ export function getRedirectURI(origin: string, server: string) {
 }
 
 async function fetchAppInfo(origin: string, server: string) {
-  const app: AppInfo = await $fetch(`https://${server}/api/v1/apps`, {
+  const app: AppInfo = await $fetch(`http${server.endsWith('.onion') ? '' : 's'}://${server}/api/v1/apps`, {
     method: 'POST',
     body: {
       client_name: APP_NAME + (env !== 'release' ? ` (${env})` : ''),

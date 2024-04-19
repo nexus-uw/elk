@@ -22,7 +22,7 @@ export function useMastoClient() {
 
 export function mastoLogin(masto: ElkMasto, user: Pick<UserLogin, 'server' | 'token'>) {
   const server = user.server
-  const url = `https://${server}`
+  const url = server.endsWith('.onion') ? `http://${server}` : `https://${server}`
   const instance: ElkInstance = reactive(getInstanceCache(server) || { uri: server, accountDomain: server })
   const accessToken = user.token
 

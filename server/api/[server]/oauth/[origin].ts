@@ -22,7 +22,7 @@ export default defineEventHandler(async (event) => {
   }
 
   try {
-    const result: any = await $fetch(`https://${server}/oauth/token`, {
+    const result: any = await $fetch(`http${server.endsWith('.onion') ? '' : 's'}://${server}/oauth/token`, {
       method: 'POST',
       body: {
         client_id: app.client_id,

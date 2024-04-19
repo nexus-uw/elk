@@ -22,5 +22,5 @@ export default defineEventHandler(async (event) => {
     redirect_uri: getRedirectURI(origin, server),
   })
 
-  return `https://${server}/oauth/authorize?${query}`
+  return `http${server.endsWith('.onion') ? '' : 's'}://${server}/oauth/authorize?${query}`
 })
