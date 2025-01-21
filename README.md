@@ -44,10 +44,9 @@ One could put Elk behind popular reverse proxies with SSL Handling like Traefik,
 
 1. checkout source ```git clone https://github.com/elk-zone/elk.git```
 1. got into new source dir: ```cd elk```
-1. build Docker image: ```docker build .```
 1. create local storage directory for settings: ```mkdir elk-storage```
 1. adjust permissions of storage dir: ```sudo chown 911:911 ./elk-storage```
-1. start container: ```docker-compose up -d```
+1. start container: ```docker-compose up --build -d```
 
 > [!NOTE]
 > The provided Dockerfile creates a container which will eventually run Elk as non-root user and create a persistent named Docker volume upon first start (if that volume does not yet exist). This volume is always created with root permission. Failing to change the permissions of ```/elk/data``` inside this volume to UID:GID 911 (as specified for Elk in the Dockerfile) will prevent Elk from storing it's config for user accounts. You either have to fix the permission in the created named volume, or mount a directory with the correct permission to ```/elk/data``` into the container.
@@ -67,6 +66,7 @@ These are known deployments using Elk as an alternative Web client for Mastodon 
 - [elk.mstdn.ca](https://elk.mstdn.ca) - Use Elk for the `mstdn.ca` Server
 - [elk.mastodonapp.uk](https://elk.mastodonapp.uk) - Use Elk for the `mastodonapp.uk` Server
 - [elk.bolha.us](https://elk.bolha.us) - Use Elk for the `bolha.us` Server
+- [crab.bumscode.com](https://crab.bumscode.com) - Use [crab](https://github.com/maybeanerd/crab) - a soft fork of Elk - for the `bumscode.com` Server
 
 > **Note**: Community deployments are **NOT** maintained by the Elk team. It may not be synced with Elk's source code. Please do your own research about the host servers before using them.
 
