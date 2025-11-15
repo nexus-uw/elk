@@ -83,7 +83,7 @@
     "idb-keyval": "^6.2.1",
     "ignore-dependency-scripts": "^1.0.1",
     "iso-639-1": "^3.0.0",
-    "js-yaml": "^4.1.0",
+    "js-yaml": "^4.1.1",
     "lru-cache": "^11.0.0",
     "masto": "^6.10.4",
     "mocked-exports": "^0.1.1",
